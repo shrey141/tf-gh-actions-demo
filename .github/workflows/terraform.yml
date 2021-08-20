@@ -43,7 +43,7 @@ jobs:
         uses: terraform-compliance/github_action@main
         with:
           plan: plan.out.json
-       #   features: ssh://git@github.com/terraform-compliance/user-friendly-features.git
+          features: ./tests/
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
