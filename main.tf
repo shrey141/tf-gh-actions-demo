@@ -21,7 +21,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-west-1"
+  region = "us-eest-1"
 }
 
 resource "random_pet" "sg" {}
