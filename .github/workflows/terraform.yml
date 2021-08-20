@@ -36,7 +36,8 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: |
-          terraform init && terraform state pull > plan.out && terraform show -json plan.out > plan.out.json
+          terraform init && terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
+        # terraform init && terraform state pull > plan.out && terraform show -json plan.out > plan.out.json
       
       - name: Terraform-Compliance
         uses: terraform-compliance/github_action@main
