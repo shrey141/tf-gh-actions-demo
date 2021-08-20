@@ -1,29 +1,27 @@
-# terraform {
-#   required_providers {
-#     aws = {
-#       source  = "hashicorp/aws"
-#       version = "3.26.0"
-#     }
-#     random = {
-#       source  = "hashicorp/random"
-#       version = "3.0.1"
-#     }
-#   }
-#   required_version = ">= 0.14"
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "3.26.0"
+    }
+    random = {
+      source  = "hashicorp/random"
+      version = "3.0.1"
+    }
+  }
+  required_version = ">= 0.14"
 
-#   backend "remote" {
-#     organization = "shrey-demos"
+  backend "remote" {
+    organization = "shrey-demos"
 
-#     workspaces {
-#       name = "gh-actions"
-#     }
-#   }
-# }
+    workspaces {
+      name = "gh-actions"
+    }
+  }
+}
 
 provider "aws" {
   region = "us-west-2"
-  access_key = "AKIAUAUTS5KMIFKWFR7I"
-  secret_key = "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"
 }
 
 resource "random_pet" "sg" {}
