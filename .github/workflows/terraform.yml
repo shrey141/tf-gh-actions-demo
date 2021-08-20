@@ -7,7 +7,7 @@ on:
   pull_request:
 
 jobs:
-  checkov-job:
+  checkov:
     name: Checkov
     runs-on: ubuntu-latest
     steps:
@@ -23,6 +23,26 @@ jobs:
           output_format: json # optional: the output format, one of: cli, json, junitxml, github_failed_only
           log_level: DEBUG # optional: set log level. Default WARNING
           baseline: cloudformation/.checkov.baseline # optional: Path to a generated baseline file. Will only report results not in the baseline.
+  # compliance:
+  #   name: Terraform Compliance
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: hashicorp/setup-terraform@v1
+  #       with:
+  #         # terraform_version: 0.13.0:
+  #         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+  #     - name: Terraform Plan
+  #       id: plan
+  #       run: |
+  #         terraform init && terraform plan -out=plan.out && terraform show -json plan.out > plan.out.json
+      
+  #     - name: Terraform Compliance
+  #       uses: terraform-compliance/github_action@main
+  #       with:
+  #         plan: plan.out.json
+  #         features: ./tests/
   terraform:
     name: "Terraform"
     runs-on: ubuntu-latest
