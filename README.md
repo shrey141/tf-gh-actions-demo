@@ -1,2 +1,2 @@
 # tf-gh-actions-demo
-demo gh actions
+GitHub Actions PR automation
