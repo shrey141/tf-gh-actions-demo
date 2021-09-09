@@ -23,6 +23,18 @@ jobs:
           output_format: json # optional: the output format, one of: cli, json, junitxml, github_failed_only
           log_level: DEBUG # optional: set log level. Default WARNING
           baseline: cloudformation/.checkov.baseline # optional: Path to a generated baseline file. Will only report results not in the baseline.
+  tfsec:
+    name: tfsec PR commenter
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@master
+
+      - name: tfsec
+        uses: aquasecurity/tfsec-pr-commenter-action@main
+        with:
+          github_token: ${{ secrets.TOKEN }}
   # compliance:
   #   name: Terraform Compliance
   #   runs-on: ubuntu-latest
