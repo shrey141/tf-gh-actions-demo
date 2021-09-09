@@ -69,7 +69,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Do not change
           # See the cloud credentials section for the options
         with:
-          path: /
+          path: ""
           terraform_plan_flags: ""
   terraform:
     name: "Terraform"
