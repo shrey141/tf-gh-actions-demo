@@ -24,7 +24,7 @@ jobs:
           log_level: DEBUG # optional: set log level. Default WARNING
           baseline: cloudformation/.checkov.baseline # optional: Path to a generated baseline file. Will only report results not in the baseline.
   tfsec:
-    name: tfsec PR commenter
+    name: tfsec
     runs-on: ubuntu-latest
 
     steps:
