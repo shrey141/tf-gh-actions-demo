@@ -22,7 +22,6 @@ jobs:
           framework: terraform # optional: run only on a specific infrastructure {cloudformation,terraform,kubernetes,all}
           output_format: json # optional: the output format, one of: cli, json, junitxml, github_failed_only
           log_level: DEBUG # optional: set log level. Default WARNING
-          baseline: cloudformation/.checkov.baseline # optional: Path to a generated baseline file. Will only report results not in the baseline.
   tfsec:
     name: tfsec
     runs-on: ubuntu-latest
