@@ -9,14 +9,15 @@ on:
 
 jobs:
   deploy-dev:
-    uses: shrey141/shared-workflows/.github/workflows/main.yml@main
-    jobs:
-      deploy:
-        environment: dev
+    runs-on: ubuntu-latest
+    environment: Dev
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shrey141/shared-workflows/.github/workflows/main.yml@main
 
   deploy-prod:
-    needs: deploy-dev
-    uses: shrey141/shared-workflows/.github/workflows/main.yml@main
-    jobs:
-      deploy:
-        environment: rod
+    runs-on: ubuntu-latest
+    environment: Prod
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shrey141/shared-workflows/.github/workflows/main.yml@main
