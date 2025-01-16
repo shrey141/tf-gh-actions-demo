@@ -10,5 +10,3 @@ on:
 jobs:
   deploy-staging:
     uses: shrey141/shared-workflows/.github/workflows/main.yml@main
-    with:
-      environment: 'dev'
