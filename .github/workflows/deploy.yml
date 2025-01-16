@@ -1,0 +1,18 @@
+name: Project Deploy
+
+on:
+  # This is the key part that was missing - it makes the workflow reusable
+  workflow_call:
+    inputs:
+        environment:
+          required: true
+          type: string
+          description: 'Environment to deploy to'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shrey141/shared-workflows/.github/workflows/main.yml@main
