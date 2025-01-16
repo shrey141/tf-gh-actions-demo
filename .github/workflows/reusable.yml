@@ -8,5 +8,11 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-staging:
+  deploy-dev:
     uses: shrey141/shared-workflows/.github/workflows/main.yml@main
+    environment: Dev
+
+  deploy-prod:
+    needs: deploy-staging
+    uses: shrey141/shared-workflows/.github/workflows/main.yml@main
+    environment: Prod
