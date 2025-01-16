@@ -1,0 +1,15 @@
+name: Project Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  # Allow manual triggers
+  workflow_dispatch:
+
+jobs:
+  deploy-staging:
+    uses: shrey141/shared-workflows/.github/workflows/main.yml@main
+    with:
+      environment: 'dev'
