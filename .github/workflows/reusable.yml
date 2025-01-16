@@ -1,23 +1,17 @@
 name: Project Pipeline
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
 jobs:
+    
   deploy-dev:
-    runs-on: ubuntu-latest
-    environment: Dev
-    steps:
-      - uses: actions/checkout@v4
-      - uses: shrey141/shared-workflows/.github/workflows/main.yml@main
+    uses: ./.github/workflows/deploy.yml
+    with: 
+      environment: Dev
 
   deploy-prod:
-    runs-on: ubuntu-latest
-    environment: Prod
-    steps:
-      - uses: actions/checkout@v4
-      - uses: shrey141/shared-workflows/.github/workflows/main.yml@main
+    needs: [deploy-dev]
+    uses: ./.github/workflows/deploy.yml
+    with: 
+      environment: Prod
